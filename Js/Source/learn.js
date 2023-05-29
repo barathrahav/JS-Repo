@@ -1,3 +1,4 @@
 function message() {
-    alert("Welcome to My World");
+    var name=document.getElementById("username").value;
+    alert(name);
 }
