@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Password Example</title>
+  </head>
+  <body>
+    <label for="nameInput">Name:</label>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+
+    <label for="dobInput">Date of Birth:</label>
+    <input type="date" id="dobInput">
+
+    <button onclick="generatePassword()">Generate Password</button>
+
+    <input type="password" id="passwordInput" readonly>
+
+    <script>
+        function generatePassword() {
+            var nameInput = document.getElementById("nameInput");
+            var dobInput = document.getElementById("dobInput");
+            var passwordInput = document.getElementById("passwordInput");
+            var name = nameInput.value.trim();
+            var dob = dobInput.value;
+            if (name !== "" && dob !== "") {
+                var firstName = name.substr(0, 4);
+                var password = firstName + dob;
+                passwordInput.value = password;
+            } 
+            else {
+                passwordInput.value = "";
+            }
+        }
+    </script>
+  </body>
+</html>

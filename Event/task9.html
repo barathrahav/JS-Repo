@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dropdown Example</title>
+  </head>
+  <body>
+    <input type="text" id="textInput" placeholder="Enter a value">
+    <button onclick="addValue()">Add</button>
+
+    <select id="dropdown" onchange="selectValue()">
+      <option value="">Select a value</option>
+    </select>
+
+    <div id="formSection"></div>
+
+    <script>
+        var values = []; 
+        function addValue() {
+        var input = document.getElementById("textInput");
+        var dropdown = document.getElementById("dropdown");
+        var value = input.value.trim();
+            if (value !== "" && !values.includes(value)) {
+                values.push(value);
+                var option = document.createElement("option");
+                option.value = value;
+                option.text = value;
+                dropdown.appendChild(option);
+            }
+                input.value = "";
+            }
+
+        function selectValue() {
+        var selectedValue = document.getElementById("dropdown").value;
+        var formSection = document.getElementById("formSection");
+        formSection.innerHTML = "";
+            if (selectedValue !== "") {
+                var form = document.createElement("form");
+                var usernameLabel = document.createElement("label");
+                var usernameInput = document.createElement("input");
+                var passwordLabel = document.createElement("label");
+                var passwordInput = document.createElement("input");
+                form.id = "myForm";
+                usernameLabel.innerHTML = "Username: ";
+                usernameInput.type = "text";
+                usernameInput.name = "username";
+                passwordLabel.innerHTML = "Password: ";
+                passwordInput.type = "password";
+                passwordInput.name = "password";
+                form.appendChild(usernameLabel);
+                form.appendChild(usernameInput);
+                form.appendChild(document.createElement("br"));
+                form.appendChild(passwordLabel);
+                form.appendChild(passwordInput);
+                formSection.appendChild(form);
+            }         
+        }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Arithmetic Operations Example</title>
+  </head>
+  <body>
+    <input type="number" id="input1" placeholder="Enter value 1">
+    <input type="number" id="input2" placeholder="Enter value 2">
+    <button onclick="performArithmetic()">Calculate</button>
+
+    <h3>Results:</h3>
+    <p id="addResult"></p>
+    <p id="subtractResult"></p>
+    <p id="multiplyResult"></p>
+    <p id="divideResult"></p>
+
+    <script>
+        function performArithmetic() {
+        var input1 = document.getElementById("input1").value;
+        var input2 = document.getElementById("input2").value;
+        var num1 = parseFloat(input1);
+        var num2 = parseFloat(input2);
+        var addResult = num1 + num2;
+        var subtractResult = num1 - num2;
+        var multiplyResult = num1 * num2;
+        var divideResult = num1 / num2;
+        document.getElementById("addResult").innerHTML = "Addition: " + addResult;
+        document.getElementById("subtractResult").innerHTML = "Subtraction: " + subtractResult;
+        document.getElementById("multiplyResult").innerHTML = "Multiplication: " + multiplyResult;
+        document.getElementById("divideResult").innerHTML = "Division: " + divideResult;
+    }
+    </script>
+  </body>
+</html>

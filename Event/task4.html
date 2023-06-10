@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Validation Example</title>
+  </head>
+  <body>
+    <input type="text" id="input1" placeholder="Enter value 1">
+    <input type="text" id="input2" placeholder="Enter value 2">
+    <button onclick="validateInputs()">Validate</button>
+
+    <script>
+        function validateInputs() {
+        var input1 = document.getElementById("input1").value;
+        var input2 = document.getElementById("input2").value;
+        if (input1 === "" || input2 === "") {
+            alert("One of your data is empty, kindly fill it and try again");
+        } else {
+            alert("Validation successful!");
+        }
+        }
+    </script>
+  </body>
+</html>

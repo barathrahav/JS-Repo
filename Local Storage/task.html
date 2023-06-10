@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Local Storage Example</title>
+  </head>
+  <body>
+    <label for="dataInput">Enter data:</label>
+    <input type="text" id="dataInput" />
+    <button onclick="saveData()">Save Data</button>
+
+    <h3>Stored Data:</h3>
+    <ul id="storedDataList"></ul>
+
+    <script>
+      function saveData() {
+        var dataInput = document.getElementById("dataInput").value;
+        if (dataInput !== "") {
+          localStorage.setItem("myData", dataInput);
+          displayStoredData();
+        }
+      }
+      function displayStoredData() {
+        var storedDataList = document.getElementById("storedDataList");
+        storedDataList.innerHTML = "";
+        var storedData = localStorage.getItem("myData");
+        if (storedData) {
+          var listItem = document.createElement("li");
+          listItem.textContent = storedData;
+          storedDataList.appendChild(listItem);
+        }
+      }
+    </script>
+  </body>
+</html>

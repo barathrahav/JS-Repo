@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Integer Input Example</title>
+  </head>
+  <body>
+    <input type="text" id="integerInput" placeholder="Enter an integer">
+    <select id="integerSelect"></select>
+
+    <script>
+        var integerInput = document.getElementById("integerInput");
+        var integerSelect = document.getElementById("integerSelect");
+        integerInput.addEventListener("keydown", function (event) {
+        var keyCode = event.keyCode || event.which;
+        if (
+            !(
+                keyCode === 8 ||
+                keyCode === 46 ||
+                (keyCode >= 48 && keyCode <= 57) ||
+                (keyCode >= 96 && keyCode <= 105)
+            )
+        ) {
+        event.preventDefault();
+        }
+        });
+        integerInput.addEventListener("input", function (event) {
+        var userInput = integerInput.value;
+        integerSelect.innerHTML = "";
+        if (Number.isInteger(parseInt(userInput))) {
+            for (var i = 1; i <= parseInt(userInput); i++) {
+            var option = document.createElement("option");
+            option.text = i;
+            integerSelect.add(option);
+        }
+    }
+    });
+    </script>
+  </body>
+</html>

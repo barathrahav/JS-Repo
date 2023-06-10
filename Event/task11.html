@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Date Example</title>
+</head>
+<body>
+    <label for="dateInput">Enter a date:</label>
+    <input type="date" id="dateInput">
+    <button onclick="displayDates()">Display Dates</button>
+    <input type="text" id="previousDate" readonly>
+    <input type="text" id="currentDate" readonly>
+    <input type="text" id="nextDate" readonly>
+
+    <script>
+        function displayDates() {
+            var dateInput = document.getElementById("dateInput").value;
+            var previousDateInput = document.getElementById("previousDate");
+            var currentDateInput = document.getElementById("currentDate");
+            var nextDateInput = document.getElementById("nextDate");
+
+            if (dateInput !== "") {
+                var date = new Date(dateInput);
+                var previousDate = new Date(date);
+                previousDate.setDate(date.getDate() - 5);
+                var currentDate = new Date(date);
+                var nextDate = new Date(date);
+                nextDate.setDate(date.getDate() + 5);
+                previousDateInput.value = previousDate.toISOString().split("T")[0];
+                currentDateInput.value = currentDate.toISOString().split("T")[0];
+                nextDateInput.value = nextDate.toISOString().split("T")[0];
+            } else {
+                previousDateInput.value = "";
+                currentDateInput.value = "";
+                nextDateInput.value = "";
+            }
+        }
+    </script>
+</body>
+</html>

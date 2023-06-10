@@ -1,0 +1,10 @@
+function checkUsername(user) {
+    if(/^[A-Za-z][A-Za-z0-9_]{4,16}$/.test(user)) {
+        console.log('Valid');
+    } else {
+        console.log('Not Valid');
+    }
+}
+ 
+checkUsername('pavithra_rajaram');
+checkUsername('ja7&^%87');

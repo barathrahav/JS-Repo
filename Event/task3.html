@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Comparison Example</title>
+  </head>
+  <body>
+    <input type="text" id="input1" placeholder="Enter value 1">
+    <input type="text" id="input2" placeholder="Enter value 2">
+    <button onclick="compareInputs()">Compare</button>
+
+    <script>
+        function compareInputs() {
+        var input1 = document.getElementById("input1").value;
+        var input2 = document.getElementById("input2").value;
+        if (input1 === input2) {
+            alert("Data's are equal");
+        } else {
+            alert("Data's are not equal");
+        }
+    }
+    </script>
+  </body>
+</html>

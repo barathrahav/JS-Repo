@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Resume Builder</title>
+    <style>
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="text"],
+      input[type="date"] {
+        width: 300px;
+        padding: 5px;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+      input[type="submit"] {
+        padding: 10px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Resume Builder</h1>
+    <form id="resumeForm">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" required />
+
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" required />
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" required />
+
+      <input type="submit" value="Generate Resume" />
+    </form>
+
+    <div id="output"></div>
+
+    <script>
+      document
+        .getElementById("resumeForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Fetch user inputs
+          var firstName = document.getElementById("firstName").value;
+          var lastName = document.getElementById("lastName").value;
+          var dob = document.getElementById("dob").value;
+
+          // Generate password
+          var password = generatePassword(firstName, lastName, dob);
+
+          // Create an array of objects
+          var resumeData = [
+            { field: "First Name", value: firstName },
+            { field: "Last Name", value: lastName },
+            { field: "Date of Birth", value: dob },
+            { field: "Password", value: password },
+          ];
+
+          // Display the generated resume data
+          var output = "<h2>Resume Data</h2>";
+          output += "<ul>";
+          resumeData.forEach(function (item) {
+            output +=
+              "<li><strong>" +
+              item.field +
+              ":</strong> " +
+              item.value +
+              "</li>";
+          });
+          output += "</ul>";
+
+          document.getElementById("output").innerHTML = output;
+        });
+
+      function generatePassword(firstName, lastName, dob) {
+        // Extract year from the DOB
+        var year = dob.substring(0, 4);
+
+        // Generate password using the first letter of the first name, last name, and year
+        var password = firstName.charAt(0) + lastName.charAt(0) + year;
+
+        return password;
+      }
+    </script>
+  </body>
+</html>

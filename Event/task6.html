@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Integer Input Example</title>
+  </head>
+  <body>
+    <input type="text" id="integerInput" placeholder="Enter an integer">
+    <button onclick="addInteger()">Add</button>
+
+    <select id="integerSelect"></select>
+
+    <script>
+        function addInteger() {
+            var userInput = document.getElementById("integerInput").value;
+            if (Number.isInteger(parseInt(userInput))) 
+            {
+                var option = document.createElement("option");
+                option.text = userInput;
+                var selectBox = document.getElementById("integerSelect");
+                selectBox.add(option);
+            } 
+            else {
+                alert("Please enter a valid integer.");
+            }
+            document.getElementById("integerInput").value = "";
+        }
+    </script>
+  </body>
+</html>
