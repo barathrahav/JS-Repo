@@ -19,7 +19,6 @@
     <div id="cv-form">
       <div class="header text-center bg-dark text-light py-2">
         <h2>Resume Generator</h2>
-        <p class="text-warning">By Rishika Vishnoi 😊</p>
       </div>
 
       <div class="container mt-3">
@@ -27,14 +26,14 @@
           <!-- colume 1 -->
 
           <div class="col-md-6 mt-2">
-            <h3>Personal Details</h3>
+            <h3 class="fw-bold text-decoration-underline">Personal Details</h3>
 
-            <div class="from-group mt-4">
-              <label for="">Select your photo *</label>
+            <div class="from-group mt-4 fw-semibold">
+              <label for="">Select your photo</label>
               <input id="imgField" type="file" class="form-control" />
             </div>
 
-            <div class="form-group mt-3">
+            <div class="col-md-6 form-group mt-3 fw-semibold">
               <label for="namefield"> Your Name</label>
               <input
                 type="text"
@@ -43,7 +42,7 @@
                 placeholder="Enter your name"
               />
             </div>
-            <div class="form-group mt-2">
+            <div class="form-group mt-2 fw-semibold">
               <label for="contactfield"> Your Contact No.</label>
               <input
                 type="number"
@@ -53,7 +52,7 @@
               />
             </div>
 
-            <div class="form-group mt-3">
+            <div class="form-group mt-3 fw-semibold">
               <label for="emailfield"> Your Email Id</label>
               <input
                 type="email"
@@ -63,19 +62,19 @@
               />
             </div>
 
-            <div class="form-group mt-3">
+            <div class="form-group mt-3 fw-semibold">
               <label for="addressfield">Your Address</label>
               <textarea
-                rows="4"
+                rows="3"
                 class="form-control"
                 placeholder="Enter your Address"
                 id="addressfield"
               ></textarea>
             </div>
 
-            <h3 class="text-warning mt-3">Social Link</h3>
+            <h3 class="text-primary fw-bold mt-3 text-decoration-underline">Social Link</h3>
 
-            <div class="form-group mt-2">
+            <div class="form-group mt-2 fw-semibold">
               <label for="githubfield">Github Link</label>
               <input
                 type="text"
@@ -84,7 +83,7 @@
                 placeholder="Enter your Github Profile link"
               />
             </div>
-            <div class="form-group mt-3">
+            <div class="form-group mt-3 fw-semibold">
               <label for="linkedinfield"> LinkedIn Link</label>
               <input
                 type="text"
@@ -93,52 +92,40 @@
                 placeholder="Enter your Linkedin Profile link"
               />
             </div>
-            <div class="form-group mt-3">
-              <label for="name"> Twitter Link</label>
-              <input
-                type="text"
-                id="twitterfield"
-                class="form-control"
-                placeholder="Enter your Twitter link"
-              />
-            </div>
-
-            <div class="form-group mt-3">
-              <label for="name"> Personal Website Link</label>
-              <input
-                type="text"
-                id="websitefield"
-                class="form-control"
-                placeholder="Enter your Website link"
-              />
-            </div>
           </div>
 
           <!-- column 2 -->
-          <div class="col-md-6 mt-2">
-            <h3>Professional Details</h3>
+          <div class="col-md-6 mt-2 ">
+            <h3 class="fw-bold text-decoration-underline">Professional Details</h3>
 
-            <div class="form-group mt-4">
+            <div class="form-group mt-4 fw-semibold">
               <label for="objfield">Objective</label>
               <textarea
-                rows="4"
+                rows="3"
                 class="form-control"
                 placeholder="Enter  Objective "
                 id="objfield"
               ></textarea>
             </div>
 
-            <div class="form-group mt-2">
+            <div class="form-group mt-2 fw-semibold" id="sl">
               <label for="skillfield">Skills</label>
               <textarea
-                rows="2"
-                class="form-control"
+                rows="1"
+                class="form-control tallentfield"
                 placeholder="Enter your Skill set"
                 id="skillfield"
               ></textarea>
+
+              <!-- add new textarea by js -->
+              <div class="container text-center mt-2" id="slAddButton">
+                <button onclick="addNewSkill()" class="btn btn-info btn-sm">
+                  Add
+                </button>
+              </div>
             </div>
 
-            <div class="form-group mt-3" id="we">
+            <div class="form-group mt-3 fw-semibold" id="we">
               <label for="">Work Experience</label>
               <textarea
                 rows="3"
@@ -149,13 +136,13 @@
 
               <!-- add new textarea by js -->
               <div class="container text-center mt-2" id="weAddButton">
-                <button onclick="addNewExp()" class="btn btn-warning btn-sm">
+                <button onclick="addNewExp()" class="btn btn-info btn-sm">
                   Add
                 </button>
               </div>
             </div>
 
-            <div class="form-group mt-3" id="edu">
+            <div class="form-group mt-3 fw-semibold" id="edu">
               <label for="">Education</label>
               <textarea
                 rows="3"
@@ -165,7 +152,7 @@
               ></textarea>
 
               <div class="container text-center mt-2" id="EAddButton">
-                <button onclick="addNewEdu()" class="btn btn-warning btn-sm">
+                <button onclick="addNewEdu()" class="btn btn-info btn-sm">
                   Add
                 </button>
               </div>
@@ -174,7 +161,7 @@
         </div>
 
         <div class="container text-center my-4">
-          <button onClick="generateResume()" class="btn btn-warning btn-large">
+          <button onClick="generateResume()" class="btn btn-success btn-large">
             Generate Resume
           </button>
         </div>
@@ -208,13 +195,6 @@
           </p>
           <p>
             <a id="linkedinT" href="#"></a>
-          </p>
-          <p>
-            <a id="twitterT" href="#"></a>
-          </p>
-
-          <p>
-            <a id="websiteT" href="#"></a>
           </p>
         </div>
 
