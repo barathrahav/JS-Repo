@@ -76,12 +76,6 @@ function generateResume() {
   let Linkedin = document.getElementById("linkedinfield").value;
   document.getElementById("linkedinT").innerHTML = Linkedin;
 
-  let Twitter = document.getElementById("twitterfield").value;
-  document.getElementById("twitterT").innerHTML = Twitter;
-
-  let Website = document.getElementById("websitefield").value;
-  document.getElementById("websiteT").innerHTML = Website;
-
   let Skill = document.getElementById("skillfield").value;
   document.getElementById("skillT").innerHTML = Skill;
 
