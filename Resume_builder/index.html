@@ -34,13 +34,25 @@
             </div>
 
             <div class="form-group mt-3 fw-semibold">
-              <label for="namefield"> Your Name</label>
-              <input
-                type="text"
-                id="namefield"
-                class="form-control"
-                placeholder="Enter your name"
-              />
+              <label for="namefield">Your Name</label>
+              <div class="row">
+                <div class="col">
+                  <input
+                    type="text"
+                    id="firstNameField"
+                    class="form-control"
+                    placeholder="First Name"
+                  />
+                </div>
+                <div class="col">
+                  <input
+                    type="text"
+                    id="lastNameField"
+                    class="form-control"
+                    placeholder="Last Name"
+                  />
+                </div>
+              </div>
             </div>
             
             <div class="form-group mt-2 fw-semibold">
@@ -201,7 +213,7 @@
 
         <div class="col-md-8 py-4">
           <!-- second-section -->
-          
+
           <!-- objective  -->
           <div class="card mt-4">
             <div class="card-header background">
@@ -245,7 +257,7 @@
 
           <div class="card mt-4">
             <div class="card-header background">
-              <h3>Eduacation</h3>
+              <h3>Education</h3>
             </div>
             <div class="card-body">
               <ul id="eduT">
@@ -257,7 +269,7 @@
           </div>
 
           <div class="container text-center mt-4">
-            <button onclick="printResume()" class="btn  btn-danger">
+            <button onclick="printResume()" class="btn  btn-danger" id="cv-print">
               Print Resume
             </button>
           </div>
