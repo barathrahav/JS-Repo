@@ -122,9 +122,6 @@ function addNewExp() {
   weContainer.insertBefore(newExpContainer, addButton);
 }
 
-
-
-
 function addNewEdu() {
   let newnode = document.createElement("div");
   newnode.classList.add("education");
@@ -192,10 +189,6 @@ function addNewEdu() {
   eduSection.insertBefore(newnode, addButton);
 }
 
-
-
-
-
 //generating cv
 
 function generateResume() {
@@ -235,7 +228,9 @@ function generateResume() {
   for (let e of knw) {
     skills.push(e.value);
   }
-  document.getElementById("skillT").innerHTML = skills.map(skill => `<li>${skill}</li>`).join("");
+  document.getElementById("skillT").innerHTML = skills
+    .map((skill) => `<li>${skill}</li>`)
+    .join("");
 
   let obj = document.getElementById("objfield").value;
   document.getElementById("objT").innerHTML = obj;
@@ -254,10 +249,15 @@ function generateResume() {
       company: company,
       startDate: startDate,
       endDate: endDate,
-      description: description
+      description: description,
     });
   }
-  let experiencesHTML = experiences.map(exp => `<li>${exp.position} at ${exp.company}<br>${exp.startDate} - ${exp.endDate}<br>${exp.description}</li>`).join("");
+  let experiencesHTML = experiences
+    .map(
+      (exp) =>
+        `<li>${exp.position} at ${exp.company}<br>${exp.startDate} - ${exp.endDate}<br>${exp.description}</li>`
+    )
+    .join("");
   document.getElementById("weT").innerHTML = experiencesHTML;
 
   let Education = document.getElementsByClassName("education");
@@ -265,17 +265,24 @@ function generateResume() {
   for (let edu of Education) {
     let degree = edu.querySelector('input[name="degreeField"]').value;
     let institution = edu.querySelector('input[name="institutionField"]').value;
-    let completionDate = edu.querySelector('input[name="completionDateField"]').value;
+    let completionDate = edu.querySelector(
+      'input[name="completionDateField"]'
+    ).value;
     let eduDescription = edu.querySelector('textarea[name="eduField"]').value;
 
     educationList.push({
       degree: degree,
       institution: institution,
       completionDate: completionDate,
-      eduDescription: eduDescription
+      eduDescription: eduDescription,
     });
   }
-  let educationHTML = educationList.map(edu => `<li>${edu.degree} from ${edu.institution}<br>${edu.completionDate}<br>${edu.eduDescription}</li>`).join("");
+  let educationHTML = educationList
+    .map(
+      (edu) =>
+        `<li>${edu.degree} from ${edu.institution}<br>${edu.completionDate}<br>${edu.eduDescription}</li>`
+    )
+    .join("");
   document.getElementById("eduT").innerHTML = educationHTML;
 
   let languagesField = document.querySelectorAll(".languagefield");
@@ -292,14 +299,11 @@ function generateResume() {
     }
   });
 
-  
-
   document.getElementById("cv-form").style.display = "none";
   document.getElementById("cv-template").style.display = "block";
 
   storeInput();
 }
-
 
 // Storing the input in local storage
 function storeInput() {
@@ -314,7 +318,7 @@ function storeInput() {
     skills: getValuesByClassName("tallentfield"),
     objective: document.getElementById("objfield").value,
     workExperience: getValuesByClassName("wefield"),
-    education: getValuesByClassName("edufield")
+    education: getValuesByClassName("edufield"),
   };
 
   localStorage.setItem("formData", JSON.stringify(formData));
@@ -365,7 +369,10 @@ function displayData() {
       });
 
       skillsContainer.insertBefore(newnode, skillsContainer.lastElementChild);
-      skillsContainer.insertBefore(removeButton, skillsContainer.lastElementChild);
+      skillsContainer.insertBefore(
+        removeButton,
+        skillsContainer.lastElementChild
+      );
     }
 
     document.getElementById("objfield").value = formData.objective;
@@ -419,7 +426,6 @@ function displayData() {
     console.log("No stored data found");
   }
 }
-
 
 //printing the resume
 
