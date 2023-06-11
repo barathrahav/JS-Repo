@@ -1,3 +1,22 @@
+function addNewLang() {
+  let languageField = document.createElement("input");
+  languageField.setAttribute("type", "text");
+  languageField.setAttribute("class", "form-control languagefield mt-2");
+  languageField.setAttribute("placeholder", "Enter the language you know");
+
+  let removeButton = document.createElement("button");
+  removeButton.innerText = "Remove";
+  removeButton.classList.add("btn", "btn-danger", "btn-sm", "ml-2", "mt-1");
+  removeButton.addEventListener("click", function () {
+    languageField.remove();
+    removeButton.remove();
+  });
+
+  let languageContainer = document.querySelector("#languageFieldsContainer");
+  languageContainer.appendChild(languageField);
+  languageContainer.appendChild(removeButton);
+}
+
 function addNewSkill() {
   let newnode = document.createElement("textarea");
   newnode.classList.add("form-control");
@@ -174,6 +193,9 @@ function addNewEdu() {
 }
 
 
+
+
+
 //generating cv
 
 function generateResume() {
@@ -255,6 +277,22 @@ function generateResume() {
   }
   let educationHTML = educationList.map(edu => `<li>${edu.degree} from ${edu.institution}<br>${edu.completionDate}<br>${edu.eduDescription}</li>`).join("");
   document.getElementById("eduT").innerHTML = educationHTML;
+
+  let languagesField = document.querySelectorAll(".languagefield");
+
+  let languagesList = document.getElementById("languagesT");
+  languagesList.innerHTML = ""; // Clear previous list items
+
+  // Loop through the languages input fields
+  languagesField.forEach(function (field) {
+    if (field.value.trim() !== "") {
+      let language = document.createElement("li");
+      language.innerText = field.value;
+      languagesList.appendChild(language);
+    }
+  });
+
+  
 
   document.getElementById("cv-form").style.display = "none";
   document.getElementById("cv-template").style.display = "block";
