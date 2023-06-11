@@ -76,8 +76,12 @@ function generateResume() {
   let Linkedin = document.getElementById("linkedinfield").value;
   document.getElementById("linkedinT").innerHTML = Linkedin;
 
-  let Skill = document.getElementById("skillfield").value;
-  document.getElementById("skillT").innerHTML = Skill;
+  let knw = document.getElementsByClassName("tallentfield");
+  let str0 = "";
+  for (let e of knw) {
+    str0 = str0 + `<li> ${e.value}</li>`;
+  }
+  document.getElementById("skillT").innerHTML = str0;
 
   let obj = document.getElementById("objfield").value;
   document.getElementById("objT").innerHTML = obj;
@@ -85,11 +89,11 @@ function generateResume() {
   // experience
   let work = document.getElementsByClassName("wefield");
 
-  let str = "";
+  let str1 = "";
   for (let e of work) {
-    str = str + `<li> ${e.value}</li>`;
+    str1 = str1 + `<li> ${e.value}</li>`;
   }
-  document.getElementById("weT").innerHTML = str;
+  document.getElementById("weT").innerHTML = str1;
 
   //education
   let Education = document.getElementsByClassName("edufield");
