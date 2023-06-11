@@ -8,7 +8,7 @@ function addNewSkill() {
 
   let removeButton = document.createElement("button");
   removeButton.innerText = "Remove";
-  removeButton.classList.add("btn", "btn-danger", "btn-sm", "ml-2");
+  removeButton.classList.add("btn", "btn-danger", "btn-sm", "ml-2", "mt-1");
   removeButton.addEventListener("click", function () {
     newnode.remove();
     removeButton.remove();
@@ -22,50 +22,157 @@ function addNewSkill() {
 }
 
 function addNewExp() {
-  let newnode = document.createElement("textarea");
-  newnode.classList.add("form-control");
-  newnode.style.marginTop = "20px";
-  newnode.classList.add("wefield");
-  newnode.setAttribute("rows", 3);
-  newnode.setAttribute("placeholder", "Enter your Work Experience");
+  // Create the work experience container
+  let newExpContainer = document.createElement("div");
+  newExpContainer.classList.add("work-experience");
 
+  // Create the position and company name input fields within a row
+  let positionRow = document.createElement("div");
+  positionRow.classList.add("row");
+
+  let positionCol = document.createElement("div");
+  positionCol.classList.add("col");
+  let positionInput = document.createElement("input");
+  positionInput.type = "text";
+  positionInput.classList.add("form-control", "mt-3");
+  positionInput.placeholder = "Position";
+  positionInput.name = "positionField";
+  positionCol.appendChild(positionInput);
+
+  let companyCol = document.createElement("div");
+  companyCol.classList.add("col");
+  let companyInput = document.createElement("input");
+  companyInput.type = "text";
+  companyInput.classList.add("form-control", "mt-3");
+  companyInput.placeholder = "Company Name";
+  companyInput.name = "companyField";
+  companyCol.appendChild(companyInput);
+
+  positionRow.appendChild(positionCol);
+  positionRow.appendChild(companyCol);
+
+  // Create the start date and end date input fields within a row
+  let dateRow = document.createElement("div");
+  dateRow.classList.add("row", "mt-3");
+
+  let startDateCol = document.createElement("div");
+  startDateCol.classList.add("col");
+  let startDateInput = document.createElement("input");
+  startDateInput.type = "date";
+  startDateInput.classList.add("form-control");
+  startDateInput.placeholder = "Start Date";
+  startDateInput.name = "startDateField";
+  startDateCol.appendChild(startDateInput);
+
+  let endDateCol = document.createElement("div");
+  endDateCol.classList.add("col");
+  let endDateInput = document.createElement("input");
+  endDateInput.type = "date";
+  endDateInput.classList.add("form-control");
+  endDateInput.placeholder = "End Date";
+  endDateInput.name = "endDateField";
+  endDateCol.appendChild(endDateInput);
+
+  dateRow.appendChild(startDateCol);
+  dateRow.appendChild(endDateCol);
+
+  // Create the work experience description textarea
+  let expTextarea = document.createElement("textarea");
+  expTextarea.rows = 3;
+  expTextarea.classList.add("form-control", "wefield", "mt-3");
+  expTextarea.placeholder = "Enter your Work Experience Description";
+  expTextarea.name = "expField";
+
+  // Create the remove button
   let removeButton = document.createElement("button");
   removeButton.innerText = "Remove";
-  removeButton.classList.add("btn", "btn-danger", "btn-sm", "ml-2");
+  removeButton.classList.add("btn", "btn-danger", "btn-sm", "ml-2", "mt-1");
   removeButton.addEventListener("click", function () {
-    newnode.remove();
-    removeButton.remove();
+    newExpContainer.remove();
   });
 
-  let weAdd = document.getElementById("we");
-  let weAddButton = document.getElementById("weAddButton");
+  // Append fields and remove button to the work experience container
+  newExpContainer.appendChild(positionRow);
+  newExpContainer.appendChild(dateRow);
+  newExpContainer.appendChild(expTextarea);
+  newExpContainer.appendChild(removeButton);
 
-  weAdd.insertBefore(newnode, weAddButton);
-  weAdd.insertBefore(removeButton, weAddButton);
+  // Get the work experience container and insert the new work experience container before the add button
+  let weContainer = document.getElementById("we");
+  let addButton = document.getElementById("weAddButton");
+  weContainer.insertBefore(newExpContainer, addButton);
 }
+
+
+
 
 function addNewEdu() {
-  let newnode = document.createElement("textarea");
-  newnode.classList.add("form-control");
-  newnode.style.marginTop = "20px";
-  newnode.classList.add("edufield");
-  newnode.setAttribute("rows", 3);
-  newnode.setAttribute("placeholder", "Enter your Education");
+  let newnode = document.createElement("div");
+  newnode.classList.add("education");
+
+  let degreeRow = document.createElement("div");
+  degreeRow.classList.add("row");
+
+  let degreeCol = document.createElement("div");
+  degreeCol.classList.add("col");
+  let degreeInput = document.createElement("input");
+  degreeInput.type = "text";
+  degreeInput.classList.add("form-control", "mt-3");
+  degreeInput.placeholder = "Degree";
+  degreeInput.name = "degreeField";
+  degreeCol.appendChild(degreeInput);
+
+  let institutionCol = document.createElement("div");
+  institutionCol.classList.add("col");
+  let institutionInput = document.createElement("input");
+  institutionInput.type = "text";
+  institutionInput.classList.add("form-control", "mt-3");
+  institutionInput.placeholder = "Institution";
+  institutionInput.name = "institutionField";
+  institutionCol.appendChild(institutionInput);
+
+  degreeRow.appendChild(degreeCol);
+  degreeRow.appendChild(institutionCol);
+
+  let completionDateRow = document.createElement("div");
+  completionDateRow.classList.add("row", "mt-3");
+
+  let completionDateCol = document.createElement("div");
+  completionDateCol.classList.add("col");
+  let completionDateInput = document.createElement("input");
+  completionDateInput.type = "date";
+  completionDateInput.classList.add("form-control");
+  completionDateInput.placeholder = "Completion Date";
+  completionDateInput.name = "completionDateField";
+  completionDateCol.appendChild(completionDateInput);
+
+  completionDateRow.appendChild(completionDateCol);
+
+  let eduDescriptionTextarea = document.createElement("textarea");
+  eduDescriptionTextarea.rows = 3;
+  eduDescriptionTextarea.classList.add("form-control", "edufield", "mt-3");
+  eduDescriptionTextarea.placeholder = "Enter your Education Description";
+  eduDescriptionTextarea.name = "eduField";
 
   let removeButton = document.createElement("button");
   removeButton.innerText = "Remove";
-  removeButton.classList.add("btn", "btn-danger", "btn-sm", "ml-2");
+  removeButton.classList.add("btn", "btn-danger", "btn-sm", "ml-2", "mt-1");
   removeButton.addEventListener("click", function () {
     newnode.remove();
     removeButton.remove();
   });
 
-  let weAdd = document.getElementById("edu");
-  let weAddButton = document.getElementById("EAddButton");
+  newnode.appendChild(degreeRow);
+  newnode.appendChild(completionDateRow);
+  newnode.appendChild(eduDescriptionTextarea);
+  newnode.appendChild(removeButton);
 
-  weAdd.insertBefore(newnode, weAddButton);
-  weAdd.insertBefore(removeButton, weAddButton);
+  let eduSection = document.getElementById("edu");
+  let addButton = document.getElementById("EAddButton");
+
+  eduSection.insertBefore(newnode, addButton);
 }
+
 
 //generating cv
 
@@ -74,11 +181,9 @@ function generateResume() {
   console.log(file);
 
   let reader = new FileReader();
-
   reader.readAsDataURL(file);
 
-  //set image
-
+  // Set image
   reader.onloadend = function () {
     document.getElementById("my-img").src = reader.result;
   };
@@ -86,7 +191,6 @@ function generateResume() {
   let firstName = document.getElementById("firstNameField").value;
   let lastName = document.getElementById("lastNameField").value;
   let fullName = firstName + " " + lastName;
-
   document.getElementById("nameT1").innerHTML = fullName;
 
   let contactNo = document.getElementById("contactfield").value;
@@ -105,40 +209,59 @@ function generateResume() {
   document.getElementById("linkedinT").innerHTML = Linkedin;
 
   let knw = document.getElementsByClassName("tallentfield");
-  let str0 = "";
+  let skills = [];
   for (let e of knw) {
-    str0 = str0 + `<li> ${e.value}</li>`;
+    skills.push(e.value);
   }
-  document.getElementById("skillT").innerHTML = str0;
+  document.getElementById("skillT").innerHTML = skills.map(skill => `<li>${skill}</li>`).join("");
 
   let obj = document.getElementById("objfield").value;
   document.getElementById("objT").innerHTML = obj;
 
-  // experience
-  let work = document.getElementsByClassName("wefield");
+  let work = document.getElementsByClassName("work-experience");
+  let experiences = [];
+  for (let exp of work) {
+    let position = exp.querySelector('input[name="positionField"]').value;
+    let company = exp.querySelector('input[name="companyField"]').value;
+    let startDate = exp.querySelector('input[name="startDateField"]').value;
+    let endDate = exp.querySelector('input[name="endDateField"]').value;
+    let description = exp.querySelector('textarea[name="expField"]').value;
 
-  let str1 = "";
-  for (let e of work) {
-    str1 = str1 + `<li> ${e.value}</li>`;
+    experiences.push({
+      position: position,
+      company: company,
+      startDate: startDate,
+      endDate: endDate,
+      description: description
+    });
   }
-  document.getElementById("weT").innerHTML = str1;
+  let experiencesHTML = experiences.map(exp => `<li>${exp.position} at ${exp.company}<br>${exp.startDate} - ${exp.endDate}<br>${exp.description}</li>`).join("");
+  document.getElementById("weT").innerHTML = experiencesHTML;
 
-  //education
-  let Education = document.getElementsByClassName("edufield");
+  let Education = document.getElementsByClassName("education");
+  let educationList = [];
+  for (let edu of Education) {
+    let degree = edu.querySelector('input[name="degreeField"]').value;
+    let institution = edu.querySelector('input[name="institutionField"]').value;
+    let completionDate = edu.querySelector('input[name="completionDateField"]').value;
+    let eduDescription = edu.querySelector('textarea[name="eduField"]').value;
 
-  let str2 = "";
-  for (let e of Education) {
-    str2 = str2 + `<li> ${e.value}</li>`;
-    console.log(str2);
+    educationList.push({
+      degree: degree,
+      institution: institution,
+      completionDate: completionDate,
+      eduDescription: eduDescription
+    });
   }
-  document.getElementById("eduT").innerHTML = str2;
+  let educationHTML = educationList.map(edu => `<li>${edu.degree} from ${edu.institution}<br>${edu.completionDate}<br>${edu.eduDescription}</li>`).join("");
+  document.getElementById("eduT").innerHTML = educationHTML;
 
   document.getElementById("cv-form").style.display = "none";
-
   document.getElementById("cv-template").style.display = "block";
 
   storeInput();
 }
+
 
 // Storing the input in local storage
 function storeInput() {
@@ -264,7 +387,7 @@ function displayData() {
 
 function printResume() {
   console.log("clicked");
-  // document.getElementById("cv-print").style.display = "none";
+  document.getElementById("cv-print").style.display = "none";
   displayData();
   window.print();
 }
